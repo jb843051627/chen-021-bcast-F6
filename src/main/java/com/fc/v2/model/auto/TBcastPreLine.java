@@ -42,6 +42,11 @@ public class TBcastPreLine implements Serializable {
     @ApiModelProperty(value = "线名")
     private String ruleName;
 
+    /** 线管哪一头 1本段停播分钟数 2被影响到的户数 */
+    @TableField("line_kind")
+    @ApiModelProperty(value = "线管哪一头 1本段停播分钟数 2被影响到的户数")
+    private Integer lineKind;
+
     /** 起算数值(分钟) */
     @TableField("th1_max")
     @ApiModelProperty(value = "起算数值(分钟)")
@@ -133,6 +138,14 @@ public class TBcastPreLine implements Serializable {
 
     public void setRuleName(String ruleName) {
         this.ruleName = ruleName;
+    }
+
+    public Integer getLineKind() {
+        return lineKind;
+    }
+
+    public void setLineKind(Integer lineKind) {
+        this.lineKind = lineKind;
     }
 
     public BigDecimal getTh1Max() {

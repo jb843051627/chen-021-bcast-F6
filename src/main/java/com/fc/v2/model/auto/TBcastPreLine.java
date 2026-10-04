@@ -42,19 +42,24 @@ public class TBcastPreLine implements Serializable {
     @ApiModelProperty(value = "线名")
     private String ruleName;
 
-    /** 起算数值(分钟) */
+    /** 管哪一头 0本段停播分钟线 1被影响户数线（旧卷空着的按分钟线认） */
+    @TableField("line_kind")
+    @ApiModelProperty(value = "管哪一头 0本段停播分钟线 1被影响户数线")
+    private Integer lineKind;
+
+    /** 起算数值（分钟线按分钟，户数线按户） */
     @TableField("th1_max")
-    @ApiModelProperty(value = "起算数值(分钟)")
+    @ApiModelProperty(value = "起算数值")
     private BigDecimal th1Max;
 
-    /** 过半数值(分钟) */
+    /** 过半数值（分钟线按分钟，户数线按户） */
     @TableField("th2_max")
-    @ApiModelProperty(value = "过半数值(分钟)")
+    @ApiModelProperty(value = "过半数值")
     private BigDecimal th2Max;
 
-    /** 封顶数值(分钟) */
+    /** 封顶数值（分钟线按分钟，户数线按户） */
     @TableField("th3_max")
-    @ApiModelProperty(value = "封顶数值(分钟)")
+    @ApiModelProperty(value = "封顶数值")
     private BigDecimal th3Max;
 
     /** 立线之日 */
@@ -133,6 +138,14 @@ public class TBcastPreLine implements Serializable {
 
     public void setRuleName(String ruleName) {
         this.ruleName = ruleName;
+    }
+
+    public Integer getLineKind() {
+        return lineKind;
+    }
+
+    public void setLineKind(Integer lineKind) {
+        this.lineKind = lineKind;
     }
 
     public BigDecimal getTh1Max() {
